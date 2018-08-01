@@ -2,14 +2,14 @@
 
 ## Usage
 ```sh
-wpinstall [directory]
+wpinstall [subdirectory]
 ```
 
 ## Description
-Installe la toute dernière version de Wordpress et met en place :
+Installe la toute dernière version de Wordpress à l'endroit où est lancée la commande wpinstall et met en place :
 
-- un gitignore basique
-- les fichiers d'environnement wp-config.php-at-prep et wp-config.php-at-prod
+- un gitignore basique,
+- les fichiers d'environnement wp-config.php-at-prep et wp-config.php-at-prod.
 
 ## Installation
 
