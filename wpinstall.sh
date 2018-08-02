@@ -49,6 +49,9 @@ function echolor () {
 	echo -e $color$2$std
 }
 
+
+cd $install_path;
+
 if [ "$dir" == "" ]; then
 	read -p "Vous n'avez pas indiqué de répertoire d'installation, Wordpress sera installé ici : "$install_path", ok [Y,n] : " yn
 	if [[ ! $yn =~ ^[Yy]$ ]]
@@ -56,18 +59,20 @@ if [ "$dir" == "" ]; then
 	    echo "Ok, ok... on arrête tout."
 	    exit 1
 	fi
+else
+		if [ -d $dir ] || [ -f $dir ]; then echo "Ce répertoire existe déjà, on arrête tout."; exit 1; fi
 fi
-if [ -d $dir ] || [ -f $dir ]; then echo "Ce répertoire existe déjà, on arrête tout."; exit 1; fi
+
 
 mkdir -p $dir"/web"
-cd $install_path;
+
 
 echolor y "Récupération de Wordpress dans "$install_path
 curl -L http://wordpress.org/latest.tar.gz --output latest.tar.gz
 
 echolor y "Décompression de Wordpress dans "$install_path
 tar -zxf latest.tar.gz --strip 1
-
+rm latest.tar.gz
 
 gitignore
 
