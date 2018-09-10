@@ -2,27 +2,29 @@
 
 #####
 dir=$1
-install_path=$(pwd)/$dir"/web"
+install_path=$(pwd)/$dir
 
 function gitignore () {
 	echolor y "Mise en place du gitignore dans "$install_path
 	cat << EOF > $install_path"/.gitignore"
 *.log
 wp-config.php
-wp-content/advanced-cache.php
-wp-content/backup-db/
-wp-content/backups/
-wp-content/blogs.dir/
-wp-content/cache/
-wp-content/upgrade/
-wp-content/uploads/
+app/advanced-cache.php
+app/backup-db/
+app/backups/
+app/blogs.dir/
+app/cache/
+app/upgrade/
+app/uploads/
 EOF
 }
 
 function conffiles () {
 	echolor y "Mise en place des fichiers de configutations \"-at-preprod\" et \"-at-prod\" dans "$install_path
-	cp $install_path"/wp-config-sample.php" $install_path"/wp-config.php-at-preprod"
-	cp $install_path"/wp-config-sample.php" $install_path"/wp-config.php-at-prod"
+	cp $install_path"/.env.example" $install_path"/.env-at-preprod"
+	cp $install_path"/.env.example" $install_path"/.env-at-prod"
+	cp $install_path"/web/wp-config.php" $install_path"/web/wp-config.php-at-prod"
+	cp $install_path"/web/wp-config.php" $install_path"/web/wp-config.php-at-prod"
 }
 
 function echolor () {
@@ -65,12 +67,8 @@ mkdir -p $install_path;
 cd $install_path;
 
 
-echolor y "Récupération de Wordpress dans "$install_path
-curl -L http://wordpress.org/latest.tar.gz --output latest.tar.gz
-
-echolor y "Décompression de Wordpress dans "$install_path
-tar -zxf latest.tar.gz --strip 1
-rm latest.tar.gz
+echolor y "Installation de Wordpress dans "$install_path
+composer create-project roots/bedrock $install_path
 
 gitignore
 
