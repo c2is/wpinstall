@@ -49,9 +49,6 @@ function echolor () {
 	echo -e $color$2$std
 }
 
-
-cd $install_path;
-
 if [ "$dir" == "" ]; then
 	read -p "Vous n'avez pas indiqué de répertoire d'installation, Wordpress sera installé ici : "$install_path", ok [Y,n] : " yn
 	if [[ ! $yn =~ ^[Yy]$ ]]
@@ -64,7 +61,8 @@ else
 fi
 
 
-mkdir -p $dir"/web"
+mkdir -p $install_path;
+cd $install_path;
 
 
 echolor y "Récupération de Wordpress dans "$install_path
