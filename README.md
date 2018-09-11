@@ -6,10 +6,10 @@ wpinstall [subdirectory]
 ```
 
 ## Description
-Installe la toute dernière version de Wordpress dans un répertoire nommé "web" à l'endroit où est lancée la commande et met en place :
+Installe la toute dernière version de Wordpress façon bedrock à l'endroit où est lancée la commande et met en place :
 
 - un gitignore basique,
-- les fichiers d'environnement wp-config.php-at-prep et wp-config.php-at-prod.
+- les fichiers d'environnement wp-config.php-at-prep, wp-config.php-at-prod, .env-at-preprod, .env-at-prod.
 
 ## Installation
 
