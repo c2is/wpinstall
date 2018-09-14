@@ -62,13 +62,20 @@ else
 		if [ -d $dir ] || [ -f $dir ]; then echo "Ce répertoire existe déjà, on arrête tout."; exit 1; fi
 fi
 
+if [ -d  $install_path/web ]; then echo "Un projet wordpress est déjà présent, on arrête tout."; exit 1; fi
 
 mkdir -p $install_path;
 cd $install_path;
 
 
 echolor y "Installation de Wordpress dans "$install_path
-composer create-project roots/bedrock $install_path
+composer create-project roots/bedrock $install_path/tmpinstall
+
+cd $install_path/tmpinstall
+mv .[!.]* ../
+mv * ../
+cd ../
+rm -rf $install_path/tmpinstall
 
 gitignore
 
