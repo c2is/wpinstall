@@ -7,6 +7,22 @@ install_path=$(pwd)/$dir"/web"
 function gitignore () {
 	echolor y "Mise en place du gitignore dans "$install_path
 	cat << EOF > $install_path"/.gitignore"
+# marmite
+/.marmite
+
+# OS or Editor folders
+._*
+.cache
+.DS_Store
+.idea
+Thumbs.db
+.tmp
+nbproject
+
+# Node
+node_modules
+npm-*.log
+
 *.log
 wp-config.php
 wp-content/advanced-cache.php
