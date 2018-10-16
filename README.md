@@ -5,6 +5,9 @@
 wpinstall [subdirectory]
 ```
 
+Si subdirectory n'est pas indiqué, Worpress sera installé à la racine du répertoire courant.  
+Si subdirectory est indiqué, ce sous-répertoire sera créé et Worpress sera installé dedans. 
+
 ## Description
 Installe la toute dernière version de Wordpress dans un répertoire nommé "web" à l'endroit où est lancée la commande et met en place :
 
