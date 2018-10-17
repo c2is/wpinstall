@@ -12,7 +12,8 @@ Si subdirectory est indiqué, ce sous-répertoire sera créé et Worpress sera i
 Installe la toute dernière version de Wordpress façon bedrock à l'endroit où est lancée la commande et met en place :
 
 - un gitignore basique,
-- les fichiers d'environnement wp-config.php-at-prep, wp-config.php-at-prod, .env-at-preprod, .env-at-prod.
+- les fichiers d'environnement wp-config.php-at-prep, wp-config.php-at-prod, .env-at-preprod, .env-at-prod,
+-  optionnellement un environnement docker-compose si docker est installé
 
 ## Installation
 
