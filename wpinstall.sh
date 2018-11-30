@@ -278,6 +278,14 @@ apache:
         - php
     volumes_from:
         - application
+wp-cli:
+    image: tatemz/wp-cli
+    volumes_from:
+        - application
+    links:
+        - db
+    entrypoint: wp
+    command: "--info"
 mail:
     image: catatnight/postfix
     environment:
