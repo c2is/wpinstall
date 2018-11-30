@@ -109,8 +109,6 @@ function conffiles () {
 	echolor y "Mise en place des fichiers de configutations \"-at-preprod\" et \"-at-prod\" dans "$install_path
 	cp $install_path"/.env.example" $install_path"/.env-at-preprod"
 	cp $install_path"/.env.example" $install_path"/.env-at-prod"
-	cp $install_path"/web/wp-config.php" $install_path"/web/wp-config.php-at-prod"
-	cp $install_path"/web/wp-config.php" $install_path"/web/wp-config.php-at-prod"
 }
 
 
