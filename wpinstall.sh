@@ -85,14 +85,23 @@ node_modules
 npm-*.log
 
 *.log
-wp-config.php
-app/advanced-cache.php
-app/backup-db/
-app/backups/
-app/blogs.dir/
-app/cache/
-app/upgrade/
-app/uploads/
+web/app/advanced-cache.php
+web/app/backup-db/
+web/app/backups/
+web/app/blogs.dir/
+web/app/cache/
+web/app/upgrade/
+web/app/uploads/
+web/app/plugins/*
+!web/app/plugins/advanced-custom-fields-pro
+!web/app/plugins/sitepress-multilingual-cms
+!web/app/plugins/wpml-string-translation
+!web/app/plugins/wpml-translation-management
+web/app/themes/acti-starter-theme
+web/wp/
+
+# Composer
+/vendor/
 EOF
 }
 
