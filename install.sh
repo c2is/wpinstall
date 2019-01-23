@@ -48,7 +48,6 @@ function conffiles () {
 	cp $install_path"/.env.example" $install_path"/.env-at-prod"
 }
 
-
 echolor y "Installation de Wordpress dans "$install_path
 composer create-project roots/bedrock $install_path/tmpinstall
 
@@ -57,6 +56,16 @@ mv .[!.]* ../
 mv * ../
 cd ../
 rm -rf $install_path/tmpinstall
+
+# Require plugins
+composer require acti/acti-starter-theme:dev-master
+composer require timber/timber
+composer require tedivm/stash
+composer require wpackagist-plugin/cookie-law-info
+composer require wpackagist-plugin/kint-debugger
+composer require wpackagist-plugin/autodescription
+composer require wpackagist-plugin/breadcrumb-navxt
+
 
 gitignore
 
