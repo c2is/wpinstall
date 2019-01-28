@@ -111,7 +111,6 @@ function conffiles () {
 	cp $install_path"/.env.example" $install_path"/.env-at-prod"
 }
 
-
 echolor y "Installation de Wordpress dans "$install_path
 composer create-project roots/bedrock $install_path/tmpinstall
 
@@ -121,9 +120,58 @@ mv * ../
 cd ../
 rm -rf $install_path/tmpinstall
 
+# Require plugins
+composer require acti/acti-starter-theme:dev-master
+composer require timber/timber
+composer require tedivm/stash
+composer require wpackagist-plugin/cookie-law-info
+composer require wpackagist-plugin/kint-debugger
+composer require wpackagist-plugin/autodescription
+composer require wpackagist-plugin/breadcrumb-navxt
+
+
 gitignore
 
 conffiles
+function childtheme ( ){
+    childpath=$install_path/web/app/themes/$dir
+
+    nicethemename="${dir//_/ }"
+    nicethemename="${nicethemename^}"
+
+    echolor y "Clone du thème enfant dans "$childpath
+
+    # Clone the child theme from github
+    git clone https://github.com/c2is/acti-starter-theme-child.git clonetmp
+    cd clonetmp
+
+    # Creation of the child theme directory
+    mkdir $childpath
+
+    # Move child theme folders and files from tmp to final directory
+    mv .[!.]* $childpath
+    mv * $childpath
+
+    # Remove clonetmp
+    cd ../
+    rm -rf clonetmp
+
+    cd $childpath
+
+    # Generation of style.css's informations
+    printf  "/**
+ * $nicethemename
+ * Theme Name: $nicethemename
+ * Author: Acti
+ * Description: $nicethemename theme.
+ * Template: acti-starter-theme
+ */"  > style.css
+
+    cd $install_path
+
+}
+
+childtheme
 
 function dockerize () {
 
