@@ -14,7 +14,6 @@ function childtheme ( ){
     mkdir $childpath
 
     # Move child theme folders and files from tmp to final directory
-    mv .[!.]* $childpath
     mv * $childpath
 
     # Remove clonetmp

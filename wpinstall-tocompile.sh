@@ -39,6 +39,6 @@ cd $install_path;
 
 . $abs_path/install.sh
 . $abs_path/childthemeinstall.sh
-. $abs_path/docker.sh
+#. $abs_path/docker.sh
 
 
