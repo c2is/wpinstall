@@ -168,7 +168,7 @@ mail:
 postfix:
     image: catatnight/postfix
     environment:
-        - maildomain=fermob.dev.acti
+        - maildomain=unprojet.dev.acti
         - smtp_user=web:web
     ports:
         - "25"
