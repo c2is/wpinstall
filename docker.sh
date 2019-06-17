@@ -161,9 +161,14 @@ wp-cli:
     entrypoint: wp
     command: "--info"
 mail:
+    image: djfarrelly/maildev
+    ports:
+        - 1080:80
+    command: bin/maildev --web 80 --smtp 25 --outgoing-host postfix --outgoing-user web --outgoing-pass web --incoming-user web --incoming-pass web
+postfix:
     image: catatnight/postfix
     environment:
-        - maildomain=unprojet.dev.acti
+        - maildomain=fermob.dev.acti
         - smtp_user=web:web
     ports:
         - "25"
